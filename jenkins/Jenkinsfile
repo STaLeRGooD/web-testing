@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/STaLeRGooD/web-testing.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+
+        stage('Docker build') {
+            steps {
+                script {
+                    dockerImage = docker.build("web-testing:${env.BUILD_NUMBER}")
+                }
+            }
+        }
+
+        stage('Docker login') {
+            steps {
+                script {
+                    withDockerRegistry([credentialsId: 'dckr_pat_f1_UW74lRJ5yBigXGab7BA8x8OA', url: 'https://registry.hub.docker.com']) {
+                        docker.withRegistry('https://registry.hub.docker.com', 'dckr_pat_f1_UW74lRJ5yBigXGab7BA8x8OA') {
+                            dockerImage.push()
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
