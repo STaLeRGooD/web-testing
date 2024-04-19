@@ -1,9 +1,5 @@
 pipeline {
-    agent  {
-        kubernetes {
-            label 'build'
-        }
-    }
+    agent any
 
     stages {
         stage('Checkout') {
