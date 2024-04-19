@@ -1,8 +1,8 @@
 pipeline {
     agent  {
         kubernetes {
-            image 'node'
-            args '-u root'
+            label 'build'
+            defaultContainer 'jnlp'
         }
     }
 
