@@ -3,8 +3,9 @@ properties([disableConcurrentBuilds()])
 pipeline {
     agent {
         kubernetes {
-            inheritFrom 'jenkins-docker-slave'            
-        }
+            defaultContainer 'jnlp'
+            yamlFile 'kaniko.yaml'
+     }
     }
     //tools {docker 'jenkins-docker'}
     
