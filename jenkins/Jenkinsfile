@@ -44,7 +44,33 @@ pipeline {
 
 
         }
-
+        stage('Build') {
+            steps {
+                script {
+                    podTemplate(label: 'docker-build', yaml: '''
+                        apiVersion: v1
+                        kind: Pod
+                        metadata:
+                        name: docker-build
+                        spec:
+                        containers:
+                          - name: docker-build
+                            image: docker:latest
+                            command: ['cat']
+                            tty: true
+                            volumeMounts:
+                              - name: docker-socket
+                                mountPath: /var/run/docker.sock
+                        volumes:
+                           - name: docker-socket
+                            hostPath:
+                                path: /var/run/docker.sock''') {
+                    node(docker-build) {
+                        sh 'docker build -t my-image .'
+                    }
+                }
+            }
+        }
         // stage('Docker build') {
         //     steps {
         //         script {
