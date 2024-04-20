@@ -33,8 +33,8 @@ pipeline {
                 echo " ====================================== start building image ======================================"
                 container('jenkins-docker-slave'){
                 dir('docker'){
-                    sh 'docker run '
-                    sh 'docker build .'
+                    sh 'docker version '
+                    //sh 'docker build .'
                 }
                 }
             }
