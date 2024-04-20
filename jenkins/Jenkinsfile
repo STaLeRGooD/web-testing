@@ -1,5 +1,10 @@
 pipeline {
-    agent jenkins-slave
+    agent {
+        kubernetes {
+            image 'node'
+            args '-u root'
+        }
+    }
     
 
     stages {
