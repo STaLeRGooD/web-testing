@@ -33,7 +33,7 @@ pipeline {
                 echo " ====================================== start building image ======================================"
                 container('jenkins-docker-slave'){
                 dir('docker'){
-                    //sh 'docker run -v /var/run/docker.sock:/var/run/docker.sock ...'
+                    sh 'docker run -v /var/run/docker.sock:/var/run/docker.sock ...'
                     sh 'docker build .'
                 }
                 }
