@@ -4,7 +4,7 @@ pipeline {
             label 'jenkins-nodejs'
         }
     }
-    tools {docker "jenkins-docker"}
+    tools {Docker "jenkins-docker"}
     
     
 
