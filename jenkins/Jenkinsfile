@@ -54,13 +54,13 @@ pipeline {
                             name: docker-build
                         spec:
                             containers:
-                            - name: docker-build
-                                image: docker:latest
-                                command: ['cat']
-                                tty: true
-                                volumeMounts:
-                                - name: docker-socket
-                                    mountPath: /var/run/docker.sock
+                          - name: docker-build
+                            image: docker:latest
+                            command: ['cat']
+                            tty: true
+                            volumeMounts:
+                              - name: docker-socket
+                                mountPath: /var/run/docker.sock
                             volumes:
                             - name: docker-socket
                                 hostPath:
