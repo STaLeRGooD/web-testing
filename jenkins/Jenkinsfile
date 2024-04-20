@@ -45,6 +45,7 @@ pipeline {
 
         // }
         stage('Build') {
+            agent any
             steps {
                 script {
                     podTemplate(label: 'docker-build', yaml: '''
@@ -65,8 +66,8 @@ pipeline {
                               - name: docker-socket
                                 hostPath:
                                 path: /var/run/docker.sock''') {
-                    node(docker-build) {
-                        sh 'docker build -t my-image .'
+                                            node(docker-build) {
+                                                sh 'docker build -t my-image .'
                     }
                 }
             }
