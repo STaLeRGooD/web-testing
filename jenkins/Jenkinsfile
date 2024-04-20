@@ -1,7 +1,7 @@
 pipeline {
     agent {
         kubernetes {
-            name 'jenkins-nodejs'
+            label 'jenkins-nodejs'
         }
     }
     
