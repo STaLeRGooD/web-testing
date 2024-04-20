@@ -54,17 +54,17 @@ pipeline {
                             name: docker-build
                         spec:
                             containers:
-                          - name: docker-build
-                            image: docker:latest
-                            command: ['cat']
-                            tty: true
-                            volumeMounts:
-                              - name: docker-socket
-                                mountPath: /var/run/docker.sock
+                              - name: docker-build
+                                image: docker:latest
+                                command: ['cat']
+                                tty: true
+                                volumeMounts:
+                                - name: docker-socket
+                                    mountPath: /var/run/docker.sock
                             volumes:
-                            - name: docker-socket
+                              - name: docker-socket
                                 hostPath:
-                                    path: /var/run/docker.sock''') {
+                                path: /var/run/docker.sock''') {
                     node(docker-build) {
                         sh 'docker build -t my-image .'
                     }
