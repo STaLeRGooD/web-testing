@@ -1,6 +1,6 @@
 pipeline {
     agent jenkins-slave
-    }
+    
 
     stages {
         stage('Checkout') {
