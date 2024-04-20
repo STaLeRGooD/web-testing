@@ -43,54 +43,25 @@ pipeline {
         //     }
 
 
-        // }
-        stage('Build') {
-            agent any
+        }
+        stage('Docker build') {
             steps {
                 script {
-                    podTemplate(label: 'docker-build', yaml: '''
-                        apiVersion: v1
-                        kind: Pod
-                        metadata:
-                            name: docker-build
-                        spec:
-                            containers:
-                              - name: docker-build
-                                image: docker:latest
-                                command: ['cat']
-                                tty: true
-                                volumeMounts:
-                                  - name: docker-socket
-                                    mountPath: /var/run/docker.sock
-                            volumes:
-                              - name: docker-socket
-                                hostPath:
-                                path: /var/run/docker.sock''') {
-                    node(docker-build) {
-                        sh 'docker build -t my-image .'
+                    dockerImage = docker.build("web-testing:${env.BUILD_NUMBER}")
+                }
+            }
+        }
+
+        stage('Docker login') {
+            steps {
+                script {
+                    withDockerRegistry([credentialsId: 'docker_hub_credentials', url: 'https://registry.hub.docker.com']) {
+                        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_credentials') {
+                            dockerImage.push()
+                        }
                     }
                 }
             }
         }
-        }
-        // stage('Docker build') {
-        //     steps {
-        //         script {
-        //             dockerImage = docker.build("web-testing:${env.BUILD_NUMBER}")
-        //         }
-        //     }
-        // }
-
-        // stage('Docker login') {
-        //     steps {
-        //         script {
-        //             withDockerRegistry([credentialsId: 'docker_hub_credentials', url: 'https://registry.hub.docker.com']) {
-        //                 docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_credentials') {
-        //                     dockerImage.push()
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
