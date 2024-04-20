@@ -3,7 +3,7 @@ properties([disableConcurrentBuilds()])
 pipeline {
     agent {
         kubernetes {
-            label 'jenkins-nodejs'
+            
         }
     }
     //tools {docker 'jenkins-docker'}
@@ -11,11 +11,12 @@ pipeline {
     
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/STaLeRGooD/web-testing.git'
-            }
-        }
+        // Чтоб 2 раза не проверял git
+        // stage('Checkout') {
+        //     steps {
+        //         git 'https://github.com/STaLeRGooD/web-testing.git'
+        //     }
+        // }
 
 // "Это работает, но возможно бесполезно"
         // stage('Build') {
