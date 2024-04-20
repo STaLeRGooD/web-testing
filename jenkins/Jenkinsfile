@@ -47,11 +47,7 @@ pipeline {
 
         // }
         stage('Push images') {
-             agent any
-      when {
-        branch 'master'
-      }
-      steps {
+                steps {
         script {
           def dockerImage = docker.build("${env.IMAGE_NAME}", "-f ${env.DOCKERFILE_NAME} .")
           docker.withRegistry('', 'stalergood/******') {
