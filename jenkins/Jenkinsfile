@@ -52,7 +52,6 @@ pipeline {
 
         
         stage('Docker build') {
-            agent {docker 'openjdk:8'}
             steps {
                 echo " ====================================== start building image ======================================"
                 dir('docker'){
@@ -61,7 +60,6 @@ pipeline {
             }
         }
         stage('Docker push') {
-            agent {docker 'openjdk:8'}
             steps {
                echo " ====================================== pushing image to hub======================================" 
                sh 'docker push stalergood/web-test:testing'
