@@ -14,7 +14,7 @@ pipeline {
                 some-label: pod
             spec:
             containers:
-                - name: maven
+              - name: maven
                 image: maven:3.3.9-jdk-8-alpine
                 command:
                     - cat
@@ -22,20 +22,20 @@ pipeline {
                 volumeMounts:
                     - name: m2
                     mountPath: /root/.m2
-                - name: docker
+              - name: docker
                 image: docker:latest
                 command:
                     - cat
                 tty: true
                 privileged: true
                 volumeMounts:
-                    - name: dockersock
+                  - name: dockersock
                     mountPath: /var/run/docker.sock
             volumes:
-                - name: dockersock
+              - name: dockersock
                 hostPath:
                     path: /var/run/docker.sock
-                - name: m2
+              - name: m2
                 hostPath:
                     path: /root/.m2
                   """
