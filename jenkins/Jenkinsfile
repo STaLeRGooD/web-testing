@@ -18,7 +18,7 @@ pipeline {
              }
          }
 
-// "Это работает, но возможно бесполезно"
+  // "Это работает, но возможно бесполезно"
         // stage('Build') {
         //     tools {nodejs "jenkins-nodejs"}
         //     steps {
@@ -43,7 +43,7 @@ pipeline {
         //     }
 
 
-        }
+        
         stage('Docker build') {
             steps {
                 script {
@@ -64,3 +64,4 @@ pipeline {
             }
         }
     }
+}
