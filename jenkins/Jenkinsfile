@@ -3,7 +3,7 @@ properties([disableConcurrentBuilds()])
 pipeline {
     agent {
         kubernetes {
-            inheritFrom 'jenkins-docker-slave'            
+            inheritFrom 'jenkins-docker-slave1'            
         }
     }
     //tools {docker 'jenkins-docker'}
