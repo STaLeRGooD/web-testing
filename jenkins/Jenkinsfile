@@ -22,8 +22,9 @@ pipeline {
             }
         }
 
+        
         stage('Docker build') {
-            tools {Docker "jenkins-docker"}
+            tools {docker "jenkins-docker"}
             steps {
                 echo " ====================================== start building image ======================================"
                 dir('docker'){
@@ -31,17 +32,34 @@ pipeline {
                 }
             }
         }
-
-        stage('Docker login') {
+        stage('Docker push') {
+            tools {docker "jenkins-docker"}
             steps {
-                script {
-                    withDockerRegistry([credentialsId: 'docker_hub_credentials', url: 'https://registry.hub.docker.com']) {
-                        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_credentials') {
-                            dockerImage.push()
-                        }
-                    }
-                }
+               echo " ====================================== pushing image to hub======================================" 
+               sh 'docker push stalergood/web-test:testing'
             }
+
+
         }
+
+        // stage('Docker build') {
+        //     steps {
+        //         script {
+        //             dockerImage = docker.build("web-testing:${env.BUILD_NUMBER}")
+        //         }
+        //     }
+        // }
+
+        // stage('Docker login') {
+        //     steps {
+        //         script {
+        //             withDockerRegistry([credentialsId: 'docker_hub_credentials', url: 'https://registry.hub.docker.com']) {
+        //                 docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_credentials') {
+        //                     dockerImage.push()
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
