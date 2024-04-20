@@ -24,7 +24,6 @@ pipeline {
 
         
         stage('Docker build') {
-            tools {docker "jenkins-docker"}
             steps {
                 echo " ====================================== start building image ======================================"
                 dir('docker'){
@@ -33,7 +32,6 @@ pipeline {
             }
         }
         stage('Docker push') {
-            tools {docker "jenkins-docker"}
             steps {
                echo " ====================================== pushing image to hub======================================" 
                sh 'docker push stalergood/web-test:testing'
