@@ -44,7 +44,7 @@ pipeline {
 
 
         }
-        stage('Build') 
+        stage('Build') {
             steps {
                 script {
                     podTemplate(label: 'docker-build', yaml: '''
@@ -70,6 +70,7 @@ pipeline {
                     }
                 }
             }
+        }
         }
         // stage('Docker build') {
         //     steps {
