@@ -32,7 +32,7 @@ pipeline {
             steps {
                 echo " ====================================== start building image ======================================"
                 container('jenkins-docker-slave'){
-                    sh 'sudo gpasswd -a jenkins docker'
+                    sh 'gpasswd -a jenkins docker'
                 dir('docker'){
                     sh 'docker build .'
                 }
