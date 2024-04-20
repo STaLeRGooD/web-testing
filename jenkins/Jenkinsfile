@@ -23,9 +23,11 @@ pipeline {
         }
 
         stage('Docker build') {
+            tools {Docker "jenkins-docker"}
             steps {
-                script {
-                    dockerImage = docker.build("web-testing:${env.BUILD_NUMBER}")
+                echo " ====================================== start building image ======================================"
+                dir('docker'){
+                    sh 'docker build .'
                 }
             }
         }
