@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        kubernetes {
-            label 'my-kubernetes-agent'
-            defaultContainer 'jnlp'
-        }
+    agent any
     }
 
     stages {
