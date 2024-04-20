@@ -65,11 +65,11 @@ pipeline {
                             volumes:
                               - name: docker-socket
                                 hostPath:
-                                path: /var/run/docker.sock''') 
+                                path: /var/run/docker.sock''') {
                     node(docker-build) {
                         sh 'docker build -t my-image .'
                     }
-                
+                }
             }
         }
         }
