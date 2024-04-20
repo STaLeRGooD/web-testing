@@ -4,6 +4,29 @@ pipeline {
     agent {
         kubernetes {
             //inheritFrom 'jenkins-docker-slave'
+            label 'my-docker-build'
+            defaultContainer 'jnlp'
+            yaml """
+            apiVersion: v1
+            kind: Pod
+            metadata:
+              labels:
+                app: my-docker-build
+            spec:
+              containers:
+              - name: docker
+                image: docker:latest
+                command: ["cat"]
+                tty: true
+              volumes:
+              - name: docker-sock
+                hostPath:
+                  path: /var/run/docker.sock
+              - name: my-repo
+                gitRepo:
+                  repository: https://github.com/my/repo.git
+                  """
+             
         }
     }
     //tools {docker 'jenkins-docker'}
