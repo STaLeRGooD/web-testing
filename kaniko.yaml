@@ -12,14 +12,8 @@ spec:
       #- mkdir -p /kaniko/.docker
       #- /kaniko/executor --dockerfile=DOCKERFILE --context=/app --no-push
     command:
-    - /busybox/sh
+    - echo "Building"
     - "-c"
     args:
     - /busybox/cat
     tty: true
-  - name: registry
-    image: 'registry'
-    command:
-    - /bin/registry
-    - serve
-    - /etc/docker/registry/config.yml
