@@ -7,7 +7,7 @@ spec:
   - name: kaniko
     image: 
       name: gcr.io/kaniko-project/executor:latest
-    command:
-      - echo "Building"
+    #script:
+      #- echo "Building"
       #- mkdir -p /kaniko/.docker
       # - /kaniko/executor --dockerfile=DOCKERFILE --context=/app --no-push
