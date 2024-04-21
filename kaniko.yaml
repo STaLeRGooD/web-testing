@@ -4,8 +4,9 @@ metadata:
   name: kaniko
 spec:
   containers:
-  - name: kaniko
+  - name: jnlp
     image: gcr.io/kaniko-project/executor:latest
+    imagePullPolicy: Always
     command:
       #- echo "Building"
       #- mkdir -p /kaniko/.docker
