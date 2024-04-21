@@ -3,8 +3,7 @@ properties([disableConcurrentBuilds()])
 pipeline {
     agent {
         kubernetes {
-            defaultContainer 'jnlp'
-            yamlFile 'kaniko.yaml'
+
      }
     }
     //tools {docker 'jenkins-docker'}
@@ -31,13 +30,9 @@ pipeline {
         
         stage('Docker build') {
             steps {
-                echo " ====================================== start building image ======================================"
-                container('jenkins-docker-slave'){
-                dir('docker'){
-                    sh 'docker run --user root -v /var/run/docker.sock:/var/run/docker.sock'
-                    sh 'docker version '
-                    //sh 'docker build .'
-                }
+                echo " ====================== start building image ======================"
+                container('gcr.io/kaniko-project/executor:latest') {
+                    sh "export DOCKER_CONFIG=/tmp/.docker && /kaniko/executor --context /app --dockerfile DOCKERFILE --no-push"
                 }
             }
         }

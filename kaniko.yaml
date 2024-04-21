@@ -8,14 +8,11 @@ spec:
     image: gcr.io/kaniko-project/executor:latest
     args:
       - "--dockerfile=DOCKERFILE"
-      - "--context=/content"
-      - "--destination=<gcr.io/stalergood/web-test:tagname"
+      - "--context=/app"
+      - "--no-push"
     volumeMounts:
-      - name: kaniko-secret
-        mountPath: /secret
-    env:
-      - name: GOOGLE_APPLICATION_CREDENTIALS
-        value: /secret/kaniko-secret.json
+      - name: kaniko-workspace
+        mountPath: /workspace
 restartPolicy: Never
 volumes:
-  - name: kaniko-secret 
+  - name: kaniko-workspace 
