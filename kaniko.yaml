@@ -11,8 +11,7 @@ spec:
       #- echo "Building"
       #- mkdir -p /kaniko/.docker
       #- /kaniko/executor --dockerfile=DOCKERFILE --context=/app --no-push
-    command:
-    - executor
+    args:
     - "--dockerfile=DOCKERFILE"
     - "--context=/app"
     - "--no-push"
