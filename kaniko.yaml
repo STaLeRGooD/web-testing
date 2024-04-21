@@ -5,18 +5,15 @@ metadata:
 spec:
   containers:
   - name: kaniko
-    image: gcr.io/kaniko-project/executor:latest
-    imagePullPolicy: Always
+    image: gcr.io/kaniko-project/executor:debug
     command:
-    - executor --help
-    - "--help"
-      #- mkdir -p /kaniko/.docker
-      #- /kaniko/executor --dockerfile=DOCKERFILE --context=/app --no-push
-    # args: 
-    # - "--dockerfile=DOCKERFILE"
-    # - "--context=/app"
-    # - "--no-push"
-    args: ["--dockerfile=DOCKERFILE",
-            "--context=/app",
-            "--no-push"]
+    - /busybox/cat
+    # args: ["--dockerfile=DOCKERFILE",
+    #         "--context=/app",
+    #         "--no-push"]
     tty: true
+    volumeMounts:
+      - name: kaniko-secret
+        mountPath: /kaniko/.docker
+  volumes:
+    - name: kaniko-secret

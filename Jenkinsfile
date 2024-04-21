@@ -18,7 +18,15 @@ pipeline {
         
         stage('Docker build') {
             steps {
-                sh 'executor --dockerfile=DOCKERFILE --context=/app --no-push'
+                container('kaniko'){
+                    script {
+                        sh '''
+                        /kaniko/executor --dockerfile=DOCKERFILE" \
+                                         --context=/app \
+                                         --no-push
+                        '''
+                    }
+                }
 
         }
         }    
