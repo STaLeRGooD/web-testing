@@ -13,8 +13,6 @@ spec:
       #- /kaniko/executor --dockerfile=DOCKERFILE --context=/app --no-push
     command:
     - executor
-    - "-c"
-    args:
     - "--dockerfile=DOCKERFILE"
     - "--context=/app"
     - "--no-push"
