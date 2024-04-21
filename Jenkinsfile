@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo " ====================== start building image ======================"
                 container('jenkins-kaniko') {
-                    sh "export DOCKER_CONFIG=/tmp/.docker && /kaniko/executor --context /app --dockerfile DOCKERFILE --no-push"
+                    //sh "export DOCKER_CONFIG=/tmp/.docker && /kaniko/executor --context /app --dockerfile DOCKERFILE --no-push"
                 }
             }
         }
