@@ -5,8 +5,7 @@ metadata:
 spec:
   containers:
   - name: kaniko
-    image: 
-      name: gcr.io/kaniko-project/executor:latest
+    image: gcr.io/kaniko-project/executor:latest
     #script:
       #- echo "Building"
       #- mkdir -p /kaniko/.docker
