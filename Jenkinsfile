@@ -14,11 +14,11 @@ pipeline {
 
     stages {
         // Чтоб 2 раза не проверял git
-         stage('Checkout') {
-             steps {
-                 git 'https://github.com/STaLeRGooD/web-testing.git'
-             }
-         }
+        //  stage('Checkout') {
+        //      steps {
+        //          git 'https://github.com/STaLeRGooD/web-testing.git'
+        //      }
+        //  }
 
   // "Это работает, но возможно бесполезно"
         // stage('Build') {
@@ -32,7 +32,7 @@ pipeline {
         
         stage('Docker build') {
             steps {
-                sh ' --help'
+                sh 'executor --help'
 
         }
         }
