@@ -21,7 +21,7 @@ pipeline {
                 container('kaniko'){
                     script {
                         sh '''
-                        /kaniko/executor --dockerfile /DOCKERFILE \
+                        /kaniko/executor --dockerfile DOCKERFILE \
                                          --context app \
                                          --no-push
                         '''
