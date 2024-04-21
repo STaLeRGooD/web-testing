@@ -32,8 +32,7 @@ pipeline {
         
         stage('Docker build') {
             steps {
-                    //sh "export DOCKER_CONFIG=/tmp/.docker && /kaniko/executor --context /app --dockerfile DOCKERFILE --no-push"
-            }
+
         }
         // stage('Docker push') {
         //     steps {
@@ -63,4 +62,5 @@ pipeline {
         //     }
         // }
     }
+}
 }
