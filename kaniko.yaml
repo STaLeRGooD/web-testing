@@ -11,9 +11,6 @@ spec:
       #- echo "Building"
       #- mkdir -p /kaniko/.docker
       #- /kaniko/executor --dockerfile=DOCKERFILE --context=/app --no-push
-    command:
-    - echo "Building"
-    - "-c"
     args:
-    - /busybox/cat
+    - "--dockerfile=DOCKERFILE"
     tty: true
