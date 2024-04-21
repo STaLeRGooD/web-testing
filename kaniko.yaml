@@ -16,5 +16,5 @@ spec:
 restartPolicy: Never
 volumes:
   - name: kaniko-workspace 
-  persistentVolumeClaim:
-        claimName: kaniko
+    persistentVolumeClaim:
+      claimName: kaniko
