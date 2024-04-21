@@ -4,7 +4,7 @@ pipeline {
     agent {
         kubernetes {
             inheritFrom 'jenkins-kaniko'
-           // yamlFile 'kaniko.yaml'
+            yamlFile 'kaniko.yaml'
 
      }
     }
