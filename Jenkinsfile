@@ -32,7 +32,7 @@ pipeline {
         
         stage('Docker build') {
             steps {
-                sh 'echo "Building"'
+                sh 'executor --help'
 
         }
         }
