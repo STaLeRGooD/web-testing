@@ -34,6 +34,7 @@ pipeline {
             steps {
 
         }
+        }
         // stage('Docker push') {
         //     steps {
         //        echo " ====================================== pushing image to hub======================================" 
@@ -61,6 +62,6 @@ pipeline {
         //         }
         //     }
         // }
-    }
+    
 }
 }
