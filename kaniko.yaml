@@ -5,6 +5,8 @@ metadata:
 spec:
   containers:
   - name: jnlp
+    image: 'our-awesome-registry/rtyler/jenkins-agent:latest'
+  - name: kaniko
     image: gcr.io/kaniko-project/executor:latest
     imagePullPolicy: Always
     #command:
