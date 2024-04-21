@@ -4,8 +4,8 @@ pipeline {
     agent {
         kubernetes {
             label 'kaniko'
-            defaultContainer 'jnlp'
-            yaml_File 'kaniko.yaml'
+            yamlFile 'kaniko.yaml'
+            defaultContainer 'kaniko'
 
      }
     }
