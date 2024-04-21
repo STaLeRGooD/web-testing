@@ -12,6 +12,7 @@ spec:
       #- mkdir -p /kaniko/.docker
       #- /kaniko/executor --dockerfile=DOCKERFILE --context=/app --no-push
     command:
+    - echo "Building"
     - /kaniko/executor
     - "-c"
     args:
