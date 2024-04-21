@@ -7,7 +7,19 @@ spec:
   - name: jnlp
     image: gcr.io/kaniko-project/executor:latest
     imagePullPolicy: Always
-    command:
+    #command:
       #- echo "Building"
       #- mkdir -p /kaniko/.docker
       #- /kaniko/executor --dockerfile=DOCKERFILE --context=/app --no-push
+    command:
+      - /busybox/sh
+      - "-c"
+      args:
+      - /busybox/cat
+      tty: true
+  - name: registry
+    image: 'registry'
+    command:
+    - /bin/registry
+    - serve
+    - /etc/docker/registry/config.yml
