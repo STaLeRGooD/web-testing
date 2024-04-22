@@ -1,10 +1,10 @@
-FROM https://localhost:41967/node:latest as build
+FROM localhost:31320/node:21-alpine as build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-FROM https://localhost:41967/nginx:latest
+FROM localhost:31320/nginx:1.25
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx","-g", "daemon off"]
