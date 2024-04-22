@@ -22,7 +22,7 @@ pipeline {
                     script {
                         sh '''
                         /kaniko/executor --dockerfile DOCKERFILE \
-                                         --context app \
+                                         --context /app \
                                          --no-push
                         '''
                     }
