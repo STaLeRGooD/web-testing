@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: kaniko
-    image: gcr.io/kaniko-project/executor:debug
+    image: localhost:31320/kaniko:debug
     command:
     - /busybox/cat
     # args: ["--dockerfile=DOCKERFILE",
