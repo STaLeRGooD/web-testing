@@ -17,7 +17,7 @@ pipeline {
                         /kaniko/executor --dockerfile=DOCKERFILE-test \
                                          --context=. \
                                          --insecure \
-                                         --destination=192.168.100.10:31320/nextjs:test
+                                         --no-push
                         '''
                     }
                 }
@@ -33,3 +33,5 @@ pipeline {
         // }   }
 }
 }
+
+//--destination=192.168.100.10:31320/nextjs:test
