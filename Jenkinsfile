@@ -16,9 +16,8 @@ pipeline {
                         sh '''
                         /kaniko/executor --dockerfile=DOCKERFILE-test \
                                          --context=. \
-                                         --insecure \
-                                         --no-push \
-                                         --cleanup && mkdir -p /workspace
+                                         --no-push 
+                                         --cache=true
                         '''
                     }
                 }
