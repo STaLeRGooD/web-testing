@@ -29,6 +29,6 @@ pipeline {
                 script {
                     kubernetesDeploy(configs: "next-js-app/deployment.yaml", "next-js-app/service.yaml")
                 }
-        }   
+        }   }
 }
 }
