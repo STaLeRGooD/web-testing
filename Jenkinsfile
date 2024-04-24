@@ -16,7 +16,7 @@ pipeline {
                         sh '''
                         /kaniko/executor --dockerfile=DOCKERFILE \
                                          --context=. \
-                                         --destination=192.168.100.10:31320/next-js:test
+                                         --destination=192.168.100.10:31320/nextjs:test
                         '''
                     }
                 }
