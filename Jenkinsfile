@@ -17,11 +17,11 @@ pipeline {
                         /kaniko/executor --dockerfile=DOCKERFILE \
                                          --context=. \
                                          --insecure \
-                                         --destination=192.168.100.10:31320/nextjs:test
+                                         --no-push
                         '''
                     }
                 }
-
+//--destination=192.168.100.10:31320/nextjs:test
         }
         }  
         stage('Push from localhost to k8s') {
