@@ -10,7 +10,9 @@ RUN npm ci
 FROM 192.168.100.10:31320/node:21-alpine as builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
+COPY . .
 
+ENV NEXT_TELEMETRY_DISABLED 1
 RUN npm run build
 
 FROM 192.168.100.10:31320/node:21-alpine as runner
@@ -24,4 +26,5 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 
 EXPOSE 3000
-CMD ["nmp", "start"]
+ENV PORT 3000
+CMD HOSTNAME="0.0.0.0" node server.js
