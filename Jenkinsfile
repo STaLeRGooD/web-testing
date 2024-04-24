@@ -8,14 +8,7 @@ pipeline {
 
      }
     }
-    //tools {docker 'jenkins-docker'}
-    
-    
-
     stages {
-        
-
-        
         stage('Docker build') {
             steps {
                 container('kaniko'){
@@ -23,7 +16,7 @@ pipeline {
                         sh '''
                         /kaniko/executor --dockerfile=DOCKERFILE \
                                          --context=. \
-                                         --destination=localhost:31320/next-js:test
+                                         --destination=192.168.100.10:31320/next-js:test
                         '''
                     }
                 }
