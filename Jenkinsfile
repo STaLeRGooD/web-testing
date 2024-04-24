@@ -14,7 +14,7 @@ pipeline {
                 container('kaniko'){
                     script {
                         sh '''
-                        /kaniko/executor --dockerfile=DOCKERFILE \
+                        /kaniko/executor --dockerfile=DOCKERFILE-test \
                                          --context=. \
                                          --insecure \
                                          --destination=192.168.100.10:31320/nextjs:test
