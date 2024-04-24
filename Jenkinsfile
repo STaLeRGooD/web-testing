@@ -9,7 +9,7 @@ pipeline {
      }
     }
     stages {
-        stage('Docker build') {
+        stage('Building docker in kaniko and push to localhost') {
             steps {
                 container('kaniko'){
                     script {
@@ -23,7 +23,7 @@ pipeline {
 
         }
         }  
-        stage('Docker build') {
+        stage('Push from localhost to k8s') {
             agent any
             steps {
                 script {
