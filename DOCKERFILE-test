@@ -1,6 +1,6 @@
 FROM 192.168.100.10:31320/node:21-alpine as base
 
-#FROM base as deps
+FROM 192.168.100.10:31320/node:21-alpine as deps
 WORKDIR /app
 
 # COPY package.json ./
