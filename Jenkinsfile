@@ -16,6 +16,7 @@ pipeline {
                         sh '''
                         /kaniko/executor --dockerfile=DOCKERFILE-test \
                                          --context=. \
+                                         --insecure \
                                          --no-push 
                         '''
                     }
