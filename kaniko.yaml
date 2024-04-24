@@ -7,7 +7,6 @@ spec:
   - name: kaniko
     image: localhost:31320/kaniko:debug
     command:
-    - /busybox/cat
     # args: ["--dockerfile=DOCKERFILE",
     #         "--context=/app",
     #         "--no-push"]
