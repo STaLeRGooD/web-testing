@@ -17,7 +17,6 @@ pipeline {
                         /kaniko/executor --dockerfile=DOCKERFILE-test \
                                          --context=. \
                                          --no-push 
-                                         --cache=true
                         '''
                     }
                 }
