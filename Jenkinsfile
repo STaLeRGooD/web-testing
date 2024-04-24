@@ -22,6 +22,13 @@ pipeline {
                 }
 
         }
-        }    
+        }  
+        stage('Docker build') {
+            agent any
+            steps {
+                script {
+                    kubernetesDeploy(configs: "next-js-app/deployment.yaml", "next-js-app/service.yaml")
+                }
+        }   
 }
 }
