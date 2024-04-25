@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
       - name: next-js-app #The name of the react.js application container
-        image: localhost:31320/next-js:test #The Docker image for building the React.js application container
+        image: localhost:31320/nextjs:test #The Docker image for building the React.js application container
         ports:
         - containerPort: 3000 #The port for the React.js application container
