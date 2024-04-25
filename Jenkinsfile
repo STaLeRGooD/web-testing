@@ -32,7 +32,7 @@ pipeline {
                         sh 'chmod u+x ./kubectl'  
                         sh './kubectl apply -f next-app-k8s/deployment.yaml --record=true' 
                         sh './kubectl apply -f next-app-k8s/service.yaml --record=true' 
-                        sh './kubectl set image deployments/next-js-app next-js-app=192.168.100.10:31320/nextjs:${BUILD_NUMBER}'
+                        sh './kubectl set image deployments/next-js-app next-js-app=localhost:31320/nextjs:${BUILD_NUMBER}'
                         } 
                         } 
                         }  
