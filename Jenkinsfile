@@ -25,10 +25,10 @@ pipeline {
         // }
         // }  
         stage('Push from localhost to k8s') {
-            agent 
+            agent{
                 kubernetes {
                     defaultContainer 'jnlp'
-                }
+                }}
             steps {
                 container('jnlp'){
                 script {
