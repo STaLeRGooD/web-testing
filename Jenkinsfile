@@ -24,18 +24,14 @@ pipeline {
 
         // }
         // }
-        node{
             stage('Push from localhost to k8s') {
-
+                agent any
                 steps {
-                    container('jnlp'){
                     withKubeConfig([credentialsId: 'kubectl', serverUrl: '192.168.100.10:6443']){
                         sh 'kubectl apply -f next-app-k8s/deployment.yaml --record' 
                         } 
                         } 
-                        } 
-                        } 
-                        }
+                        }  
                         } 
                         }
 
