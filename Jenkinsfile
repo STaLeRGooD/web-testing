@@ -28,14 +28,15 @@ pipeline {
             agent 
                 kubernetes {
                     defaultContainer 'jnlp'
-
-     }
+                }
             steps {
                 container('jnlp'){
                 script {
                     kubernetesDeploy(configs: "next-js-app/deployment.yaml", "next-js-app/service.yaml")
-                }}
-        }   }
+                }
+                }
+           }
+           }  
 }
 }
 
