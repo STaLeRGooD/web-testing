@@ -5,7 +5,12 @@ metadata:
   labels:
     app: next-js-app
 spec:
-  replicas: 2 #The number of pods to be created in the Kubernetes cluster for the React.js application container
+  replicas: 3 #The number of pods to be created in the Kubernetes cluster for the React.js application container
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%  
   selector:
     matchLabels:
       app: next-js-app
@@ -16,6 +21,6 @@ spec:
     spec:
       containers:
       - name: next-js-app #The name of the react.js application container
-        image: 192.168.100.10:31320/next-js:test #The Docker image for building the React.js application container
+        image: localhost:31320/next-js:test #The Docker image for building the React.js application container
         ports:
         - containerPort: 3000 #The port for the React.js application container
