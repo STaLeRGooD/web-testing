@@ -31,8 +31,8 @@ pipeline {
                 }}
             steps {
                 container('jnlp'){
-                script {
-                    kubernetesDeploy(configs: "next-js-app/deployment.yaml", "next-js-app/service.yaml")
+                withKubeConfig([credentialsId: 'kubectl', serverUrl: '192.168.100.10:6443']){
+                    sh 'kubectl apply -f next-app-k8s/deployment.yaml --record' 
                 }
                 }
            }
