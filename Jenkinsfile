@@ -28,6 +28,9 @@ pipeline {
                 agent any
                 steps {
                     withKubeConfig([credentialsId: 'kubectl', serverUrl: '192.168.100.10:6443']){
+                        sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
+                        sh 'chmod u+x ./kubectl'  
+                        sh './kubectl get pods'
                         sh 'kubectl apply -f next-app-k8s/deployment.yaml --record' 
                         } 
                         } 
