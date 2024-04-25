@@ -17,7 +17,7 @@ pipeline {
                         /kaniko/executor --dockerfile=DOCKERFILE-test \
                                          --context=. \
                                          --insecure \
-                                         --destination=192.168.100.10:31320/nextjs:$BUILD_NUMBER
+                                         --destination=192.168.100.10:31320/nextjs:test
                         '''
                     }
                 }
