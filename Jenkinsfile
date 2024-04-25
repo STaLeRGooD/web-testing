@@ -24,11 +24,10 @@ pipeline {
 
         // }
         // }  
+
+node {
         stage('Push from localhost to k8s') {
-            agent{
-                kubernetes {
-                    defaultContainer 'jnlp'
-                }}
+
             steps {
                 container('jnlp'){
                 withKubeConfig([credentialsId: 'kubectl', serverUrl: '192.168.100.10:6443']){
@@ -37,7 +36,7 @@ pipeline {
                 }
            }
            }  
-}
+}}
 }
 
 //--destination=192.168.100.10:31320/nextjs:test
