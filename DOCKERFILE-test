@@ -1,4 +1,4 @@
-FROM 192.168.100.10:31320/node:21-alpine as builder
+FROM 192.168.100.10:31320/node:21-alpine 
 WORKDIR /app
 COPY package.json ./
 COPY package-lock.json ./
@@ -7,10 +7,10 @@ COPY . .
 RUN npm run build
 
 ENV NODE_ENV production
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
+COPY /app/public ./public
+COPY /app/package.json ./package.json
+COPY /app/.next ./.next
+COPY /app/node_modules ./node_modules
 EXPOSE 3000
 ENV PORT 3000
 
