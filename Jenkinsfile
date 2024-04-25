@@ -1,15 +1,15 @@
 properties([disableConcurrentBuilds()])
 
 pipeline {
-    agent {
-        kubernetes {
-            defaultContainer 'kaniko'
-            yamlFile 'kaniko.yaml'
-
-     }
-    }
+    agent none
     stages {
         // stage('Building docker in kaniko and push to localhost') {
+        //     agent {
+        //         kubernetes {
+        //              defaultContainer 'kaniko'
+        //               yamlFile 'kaniko.yaml'
+        //}             
+        //} 
         //     steps {
         //         container('kaniko'){
         //             script {
@@ -25,7 +25,11 @@ pipeline {
         // }
         // }  
         stage('Push from localhost to k8s') {
-            agent any
+            agent 
+                kubernetes {
+                    defaultContainer 'jnlp'
+
+     }
             steps {
                 container('jnlp'){
                 script {
