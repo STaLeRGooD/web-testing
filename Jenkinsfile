@@ -17,7 +17,7 @@ pipeline {
                         /kaniko/executor --dockerfile=DOCKERFILE-test \
                                          --context=. \
                                          --insecure \
-                                         --destination=192.168.100.10:31320/nextjs:test
+                                         --destination=192.168.100.10:31320/nextjs:new
                         '''
                     }
                 }
@@ -30,8 +30,8 @@ pipeline {
                     withKubeConfig([credentialsId: 'kubectl']){
                         sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.29.0/bin/linux/amd64/kubectl"'  
                         sh 'chmod u+x ./kubectl'  
-                        sh './kubectl apply -f next-app-k8s/deployment.yaml' 
-                        sh './kubectl apply -f next-app-k8s/service.yaml' 
+                        sh './kubectl apply -f next-app-k8s/deployment.yaml --record=true' 
+                        sh './kubectl apply -f next-app-k8s/service.yaml --record=true' 
                         } 
                         } 
                         }  
