@@ -1,4 +1,4 @@
-FROM 192.168.100.10:31320/node:21-alpine
+FROM 192.168.100.10:31320/node:21-alpine as builder
 WORKDIR /app
 COPY package.json ./
 COPY package-lock.json ./
