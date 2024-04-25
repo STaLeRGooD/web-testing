@@ -5,7 +5,7 @@ metadata:
   labels:
     app: next-js-app
 spec:
-  replicas: 3 #The number of pods to be created in the Kubernetes cluster for the React.js application container
+  replicas: 2 #The number of pods to be created in the Kubernetes cluster for the React.js application container
   minReadySeconds: 10
   strategy:
     type: RollingUpdate
