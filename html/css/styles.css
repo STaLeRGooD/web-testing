@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; 
+    background-color: #161616;
+
+  }
+  main{
+    margin-right:auto;
+    margin-left: auto;
+    padding-right: 0%;
+    padding-left: 0%;
+    padding-top: 4%;
+    padding-bottom: 1%;
+    width: 95%;
+    height: 1500px;
+    display: flex;
+    
+
+}
+  header {
+    background-color: #282828;
+    color: #00ffc4;
+    padding-right: 15%;
+    padding-left: 10%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: flex;
+    position: fixed;
+    width: 100%;
+
+  }
+  header_left {
+    width: 70%;
+    padding: 0;
+    margin: 0;
+  }
+  header_right {
+    text-align: right;
+    width: 10%;
+    padding: 0;
+    margin: 0;
+}
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  nav ul li a {
+    color: #929292;
+    text-decoration: none;
+  }
+  footer {
+    color: #929292;
+    padding-bottom: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  footer p {
+    margin: 0;
+    text-align: center;
+    
+  }
+  left_col {
+    background-color: #232323;
+    margin-left:auto;     
+    width: 20%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #232323;
+    border-radius: 15px;
+    height: 100% /* Для примера, можете изменить высоту по своему усмотрению */
+  }
+  center_col {
+    background-color: #232323;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 40%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #232323;
+    border-radius: 15px;
+    height: 100% /* Для примера, можете изменить высоту по своему усмотрению */
+  }
+  right_col {
+    background-color: #232323;
+    margin-right:auto; 
+    width: 20%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #232323;
+    border-radius: 15px;
+    height: 100% /* Для примера, можете изменить высоту по своему усмотрению */
+  }
+  section:nth-child(odd) {
+    background-color: #929292;
+  }
+  section:nth-child(even) {
+    background-color: #929292;
+  }
+  h2 {
+    color: #929292;
+    margin-top: 0;
+  }

@@ -1,0 +1,46 @@
+.col_left {
+    background-color: #232323;
+    margin-left:auto;     
+    width: 20%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #232323;
+    border-radius: 15px;
+    height: 100% /* Для примера, можете изменить высоту по своему усмотрению */
+  }
+.col_center {
+    background-color: #232323;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 40%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #232323;
+    border-radius: 15px;
+    height: 100% /* Для примера, можете изменить высоту по своему усмотрению */
+  }
+.col_right {
+    background-color: #232323;
+    margin-right:auto; 
+    width: 20%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #232323;
+    border-radius: 15px;
+    height: 100% /* Для примера, можете изменить высоту по своему усмотрению */
+  }
+ 
+  .main{
+    margin-right:auto;
+    margin-left: auto;
+    padding-right: 0%;
+    padding-left: 0%;
+    padding-top: 4%;
+    padding-bottom: 1%;
+    width: 95%;
+    height: 1500px;
+    display: flex;
+  }
