@@ -4,16 +4,15 @@ import Layout from './components/layout';
 import Head from 'next/head';
 
 
-const Index: React.FC = ({ }) => {
+export default function Index() {
   return (
     <div>
       <Head>
         <title>Web-testing</title>
-        <link rel="icon" href="/img/icons/icon_site.svg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout children={'WEB-TESTING'} />
     </div>
   );
 };
 
-export default Layout;
