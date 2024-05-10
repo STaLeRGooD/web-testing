@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import Col_Right from './col_right';
 import Col_Center from './col_center';
 import Col_left from './col_left';
-import styles from "../../styles/main.module.css";
+import styles from "../styles/main.module.css";
 
 interface MainProps {
     children: ReactNode;

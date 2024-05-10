@@ -1,7 +1,7 @@
 // components/RegisterModal.tsx
 
 import { useState } from 'react';
-import styles from "../../styles/signup.module.css";
+import styles from "../styles/signup.module.css";
 
 interface RegisterModalProps {
   onClose: () => void;

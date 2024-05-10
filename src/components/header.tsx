@@ -2,7 +2,7 @@ import React from 'react';
 import Header_left from './header left';
 import Header_center from './header_center';
 import Header_right from './header_right';
-import styles from "../../styles/header.module.css";
+import styles from "../styles/header.module.css";
 
 interface HeaderProps {
   title: string;
