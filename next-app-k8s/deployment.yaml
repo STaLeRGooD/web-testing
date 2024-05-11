@@ -25,3 +25,6 @@ spec:
         image: localhost:31320/nextjs:test #The Docker image for building the React.js application container
         ports:
         - containerPort: 3000 #The port for the React.js application container
+        env:
+        - name: NEXTAUTH_URL
+          value: "http://localhost:8005"
