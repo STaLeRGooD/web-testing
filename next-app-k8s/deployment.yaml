@@ -27,4 +27,4 @@ spec:
         - containerPort: 3000 #The port for the React.js application container
         env:
         - name: NEXTAUTH_URL
-          value: "http://localhost:8005"
+          value: "http://192.168.6.88:8005"
