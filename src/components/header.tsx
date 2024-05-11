@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
     <Header_center title={''}>
         
     </Header_center> 
-    <Header_right title={''}>
+    <Header_right navLinks={[]}>
         
     </Header_right> 
   </div>
