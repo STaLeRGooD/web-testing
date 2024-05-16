@@ -22,7 +22,9 @@ export const authConfig: AuthOptions = {
         return null
       }
     })
+    
   ],
+  secret: process.env.SECRET,
   pages: {
     signIn: '/'
   }
