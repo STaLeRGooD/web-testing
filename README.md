@@ -244,3 +244,10 @@ https://web-testing-pied.vercel.app/
 
 B
 
+Проксирование Next js с помощью nginx
+Размещаем nginx в k8s, далее в конфиге меняем параметры для переброса с 80 на 3000 запросы через прокси nginx
+    location / {
+        proxy_pass  http://localhost:3000;
+        proxy_set_header Host   $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
