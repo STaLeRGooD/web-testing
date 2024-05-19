@@ -1,6 +1,7 @@
 import type { AuthOptions, User } from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 import { users } from '../test_data/users';
+import { addUserData } from '../services/add_userdata_redis';
 
 export const authConfig: AuthOptions = {
   providers: [
@@ -15,7 +16,7 @@ export const authConfig: AuthOptions = {
         const currentUser = users.find(user => user.email === credentials.email)
         if (currentUser && currentUser.password === credentials.password) {
           const { password, ...userWithoutPass } = currentUser;
-          console.log(currentUser);
+          addUserData(currentUser);
           return userWithoutPass as User;
         }
 

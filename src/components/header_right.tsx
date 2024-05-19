@@ -6,11 +6,10 @@ import styles from "../styles/header.module.css";
 import Image from 'next/image'
 import RegisterModal from '../components/RegisterModal';
 import LogInModal from '../components/LogInModal';
-import { usePathname } from 'next/navigation';
+import { redirect, usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
-
-
+import {connect} from 'tls';
 
 interface HeaderProps {
   navLinks: NavLink[];
@@ -20,11 +19,10 @@ type NavLink = {
   href: string;
 };
 
-const Header_right: React.FC<HeaderProps> = ( { navLinks }: HeaderProps) => {
+const Header_right: React.FC<HeaderProps> =  ( { navLinks }: HeaderProps) => {
   const pathname = usePathname();
   const session = useSession();
-
-  console.log(session);
+   
 
   const [isRegModalOpen, setIsRegModalOpen] = useState(false);
   const toggleRegModal = () => {
@@ -52,7 +50,7 @@ const Header_right: React.FC<HeaderProps> = ( { navLinks }: HeaderProps) => {
       ) : (
               <>
               <Link href="#" onClick={toggleLogModal}>Sign In</Link>{isLogModalOpen && <LogInModal onClose={toggleLogModal} />}
-              <Link href="#" onClick={toggleRegModal}>Sign Up</Link>{isRegModalOpen && <RegisterModal onClose={toggleRegModal} />}
+              <Link href="#" onClick={toggleRegModal}>Sing Up</Link>{isRegModalOpen && <RegisterModal onClose={toggleRegModal} />}
               </>
       )}
 

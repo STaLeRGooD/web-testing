@@ -1,11 +1,17 @@
+'use client'
+
 import { useState } from 'react';
 import styles from "../styles/signin.module.css";
 
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 import type { FormEventHandler } from "react";
-
-
+import { addRedis} from '@/src/app/actions/redis_add'
+import { getRedis } from '@/src/app/actions/redis_get'
+import { Session } from 'inspector';
+import { useSession, signOut } from 'next-auth/react';
+import { getServerSession } from 'next-auth/next';
+import { authConfig } from '../configs/auth';
 
 
 interface LogInModalProps {
@@ -16,16 +22,20 @@ const LogInModal: React.FC<LogInModalProps> = ({ onClose }) => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const session = useSession();
 
   const handleLogIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     const formData = new FormData(e.currentTarget);
     const res = await signIn("credentials", {
       email: email,
       password: password,
       redirect: false,
     });
-    
+    //--------redis
+    //const user_data = res 
+    //const result = await addRedis(status)
     // Ваша логика авторизации здесь
     if (res && !res.error) {
       router.push("/");
