@@ -7,10 +7,10 @@ import { getRedis } from "../actions/redis_get"
 export async function addRedis(KEY, user_data) {
   const ipv4 = user_data.ipv4
   const mac = user_data.mac
-  await client.hSet(KEY, {
+  await client.hSet(`task_list:${KEY}`, {
     ipv4,
     mac
   })
-  console.log(KEY, {user_data});
+  await client.lPush(`task_list`,KEY )
   getRedis(KEY)
 }
